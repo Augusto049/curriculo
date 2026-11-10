@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Currículo - Augusto Henrique Ribeiro Rigon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0f172a;
+      --accent: #2563eb;
+      --bg: #0f172a;
+      --card-bg: #ffffff;
+      --text-main: #1e293b;
+      --border: #e2e8f0;
+      --tag-bg: #eff6ff;
+      --tag-border: #bfdbfe;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: #0f172a;
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border-radius: 20px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      overflow: hidden;
+    }
+
+    /* Hero Header */
+    header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #1e1b4b 100%);
+      color: #ffffff;
+      padding: 48px 40px;
+      position: relative;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #2563eb, #3b82f6, #60a5fa);
+    }
+
+    .header-info h1 {
+      font-size: 2.25rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+      letter-spacing: -0.025em;
+      color: #ffffff;
+    }
+
+    .header-info p.role {
+      font-size: 1.15rem;
+      color: #60a5fa;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .contact-links a {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 10px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      transition: all 0.2s ease;
+    }
+
+    .contact-links a:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* Content Layout */
+    .content {
+      padding: 44px 40px;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 48px;
+    }
+
+    @media (max-width: 768px) {
+      .content {
+        grid-template-columns: 1fr;
+        padding: 30px 24px;
+      }
+      header {
+        padding: 32px 24px;
+      }
+    }
+
+    /* Section Styles */
+    section {
+      margin-bottom: 36px;
+    }
+
+    h2 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #0f172a;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h2::before {
+      content: "";
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      background: var(--accent);
+      border-radius: 3px;
+    }
+
+    p {
+      color: var(--text-main);
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+    }
+
+    /* Project / Experience Cards */
+    .card-item {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 20px;
+      transition: all 0.2s ease;
+    }
+
+    .card-item:hover {
+      border-color: #cbd5e1;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 6px;
+      gap: 12px;
+    }
+
+    .item-title {
+      font-weight: 700;
+      color: #0f172a;
+      font-size: 1.05rem;
+    }
+
+    .item-date {
+      font-size: 0.8rem;
+      color: #2563eb;
+      font-weight: 700;
+      background: #dbeafe;
+      padding: 3px 10px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    .item-sub {
+      font-size: 0.9rem;
+      color: #475569;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    ul.bullets {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    ul.bullets li {
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+      color: #334155;
+      position: relative;
+      padding-left: 18px;
+    }
+
+    ul.bullets li::before {
+      content: "•";
+      color: var(--accent);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    /* Badge Tags */
+    .tag-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .tag {
+      background-color: var(--tag-bg);
+      color: var(--accent);
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      border: 1px solid var(--tag-border);
+    }
+
+    /* Sidebar info */
+    .sidebar-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+
+    .sidebar-block h2 {
+      font-size: 0.95rem;
+      margin-bottom: 14px;
+    }
+
+    footer {
+      background-color: #0f172a;
+      color: #94a3b8;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <div class="header-info">
+        <h1>Augusto Henrique Ribeiro Rigon</h1>
+        <p class="role">Desenvolvedor de Software | Full-Stack & Sistemas</p>
+        <div class="contact-links">
+          <a href="mailto:augustoribeirorigon@gmail.com">augustoribeirorigon@gmail.com</a>
+          <a href="https://github.com/Augusto049" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/augusto-henrique-ribeiro-rigon-572b7a407/" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="content">
+      <!-- Main Column -->
+      <main>
+        <section>
+          <h2>Sobre Mim</h2>
+          <p>
+            Desenvolvedor de software focado na construção de sistemas eficientes, arquitetura limpa e aplicações web modernas. Possuo sólida base em engenharia de software, desenvolvimento backend/frontend, criação de APIs RESTful, testes automatizados e integração de modelos com Inteligência Artificial e Visão Computacional.
+          </p>
+        </section>
+
+        <section>
+          <h2>Projetos em Destaque</h2>
+          
+          <div class="card-item">
+            <div class="item-header">
+              <span class="item-title">BarberSaaS com Inteligência Artificial</span>
+              <span class="item-date">Em Desenvolvimento</span>
+            </div>
+            <div class="item-sub">SaaS de Gestão para Barbearias</div>
+            <p>Plataforma SaaS desenvolvida para gestão completa de barbearias, integrando módulos de agendamento, gestão financeira e um modelo de visão computacional/IA em tempo real para estimativa automatizada do tempo de espera em filas por câmera.</p>
+            <div class="tag-container">
+              <span class="tag">Python</span>
+              <span class="tag">FastAPI</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">IA / Computer Vision</span>
+              <span class="tag">REST API</span>
+              <span class="tag">SQLite</span>
+            </div>
+          </div>
+
+          <div class="card-item">
+            <div class="item-header">
+              <span class="item-title">Sistema de Dimensionamento Web & Mobile</span>
+              <span class="item-date">Em Desenvolvimento</span>
+            </div>
+            <div class="item-sub">Aplicação Multiplataforma</div>
+            <p>Desenvolvimento de sistema web e mobile focado no processamento de dados e cálculo automatizado de parâmetros operacionais com alta precisão.</p>
+            <div class="tag-container">
+              <span class="tag">Python</span>
+              <span class="tag">Android</span>
+              <span class="tag">Web</span>
+              <span class="tag">APIs</span>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Formação & Cursos</h2>
+          
+          <div class="card-item">
+            <div class="item-header">
+              <span class="item-title">Programação de Sistemas & Dev Web com IA</span>
+              <span class="item-date">SENAC SC</span>
+            </div>
+            <div class="item-sub">Formação Técnica em Desenvolvimento</div>
+            <ul class="bullets">
+              <li>Programador de Sistemas (Carga Horária: 200h) - Algoritmos, estruturas de dados e desenvolvimento de software.</li>
+              <li>Desenvolvimento Web com IA (Carga Horária: 240h) - Aplicações web modernas e integração com modelos de IA.</li>
+            </ul>
+          </div>
+
+          <div class="card-item">
+            <div class="item-header">
+              <span class="item-title">Graduação Universitária</span>
+              <span class="item-date">UFSC</span>
+            </div>
+            <div class="item-sub">Universidade Federal de Santa Catarina</div>
+            <ul class="bullets">
+              <li>Atuação em liderança estudantil no Centro Acadêmico (CAACO).</li>
+              <li>Participação ativa em projetos de extensão universitária e organização de simpósios.</li>
+            </ul>
+          </div>
+        </section>
+      </main>
+
+      <!-- Sidebar -->
+      <aside>
+        <div class="sidebar-block">
+          <h2>Habilidades Técnicas</h2>
+          <div class="tag-container">
+            <span class="tag">Java</span>
+            <span class="tag">Python</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">HTML5 / CSS3</span>
+            <span class="tag">SQL / SQLite / Postgres</span>
+            <span class="tag">REST APIs</span>
+            <span class="tag">Git & GitHub</span>
+            <span class="tag">TDD / BDD</span>
+            <span class="tag">Testes Unitários</span>
+          </div>
+        </div>
+
+        <div class="sidebar-block">
+          <h2>Idiomas</h2>
+          <ul class="bullets">
+            <li><strong>Português:</strong> Nativo</li>
+            <li><strong>Inglês:</strong> Técnico (Leitura e Documentação)</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      <p>Augusto Henrique Ribeiro Rigon • Curitibanos, SC</p>
+    </footer>
+  </div>
+
+</body>
+</html>
